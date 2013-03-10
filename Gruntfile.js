@@ -31,8 +31,13 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     "jasmine-node": {
       run: {
-        files: [],
-        helpers: []
+        spec: "spec"
+      },
+      options: {
+        coffee: false
+      },
+      env: {
+        NODE_PATH: undefined
       },
       default_options: {
         options: {

@@ -13,38 +13,29 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('jasmine-node', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+  grunt.registerTask('jasmine-node', '', function() {
+    grunt.config.requires('jasmine-node.run.spec');
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+    var options = [];
+    if (grunt.config('jasmine-node.options.coffee')) {
+      options.push("--coffee");
+    }
 
-      // Handle options.
-      src += options.punctuation;
+    options.push(grunt.config('jasmine-node.run.spec'));
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+    var env = {}
+    var _env = grunt.config('jasmine-node.env')
+    for (var i in process.env) { env[i] = process.env[i]; }
+    for (var i in _env) { env[i] = _env[i]; }
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
-    });
+    var spawn = require("child_process").spawn;
+
+    var done = this.async();
+    var cmd = spawn("jasmine-node", options, {env:env});
+    var write = function(data) { process.stdout.write(data.toString()); }
+    cmd.stdout.on('data', write);
+    cmd.stderr.on('data', write);
+    cmd.on('exit', function(code) { done(true); });
   });
 
 };
