@@ -1,23 +1,22 @@
 {
   "name": "grunt-contrib-jasmine-node",
   "description": "plugin for jasmine-node",
-  "version": "0.1.0",
-  "homepage": "https://github.com/tsakuma/grunt-contrib-jasmine-node",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tmtk75/grunt-contrib-jasmine-node",
   "author": {
     "name": "Tomotaka Sakuma",
     "email": "ktmtmks@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tsakuma/grunt-contrib-jasmine-node.git"
+    "url": "git://github.com/tmtk75/grunt-contrib-jasmine-node.git"
   },
   "bugs": {
-    "url": "https://github.com/tsakuma/grunt-contrib-jasmine-node/issues"
+    "url": "https://github.com/tmtk75/grunt-contrib-jasmine-node/issues"
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "https://github.com/tsakuma/grunt-contrib-jasmine-node/blob/master/LICENSE-MIT"
+      "type": "MIT"
     }
   ],
   "main": "Gruntfile.js",
