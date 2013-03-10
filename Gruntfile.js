@@ -29,7 +29,11 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    contrib_jasmine_node: {
+    "jasmine-node": {
+      run: {
+        files: [],
+        helpers: []
+      },
       default_options: {
         options: {
         },
