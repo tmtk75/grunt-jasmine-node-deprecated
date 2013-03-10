@@ -17,21 +17,24 @@ One the plugin has been installed, it may be enabled inside your Gruntfile with 
 grunt.loadNpmTasks('grunt-contrib-jasmine-node');
 ```
 
-## The "contrib_jasmine_node" task
+## The "jasmine-node" task
 
 ### Overview
-In your project's Gruntfile, add a section named `contrib_jasmine_node` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `jasmine-node` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  contrib_jasmine_node: {
+  "jasmine-node": {
     options: {
-      // Task-specific options go here.
+      coffee: true
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+    run: {
+      spec: "spec"
     },
-  },
+    env: {
+      NODE_PATH: "lib/js"
+    }
+  }
 })
 ```
 
@@ -52,32 +55,18 @@ A string value that is used to do something else with whatever else.
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
 ```js
 grunt.initConfig({
-  contrib_jasmine_node: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  contrib_jasmine_node: {
+  "jasmine-node": {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      coffee: false
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    run: {
+      spec: "spec"
     },
+    env: {
+      NODE_PATH: undefined
+    }
   },
 })
 ```
