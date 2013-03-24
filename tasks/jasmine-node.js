@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     var write = function(data) { process.stdout.write(data.toString()); }
     cmd.stdout.on('data', write);
     cmd.stderr.on('data', write);
-    cmd.on('exit', function(code) { done(true); });
+    cmd.on('exit', function(code) { done(code == 0); });
   });
 
 };
