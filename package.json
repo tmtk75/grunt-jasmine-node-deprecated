@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-jasmine-node",
   "description": "plugin for jasmine-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/tmtk75/grunt-contrib-jasmine-node",
   "author": {
     "name": "Tomotaka Sakuma",
