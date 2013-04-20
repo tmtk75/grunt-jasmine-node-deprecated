@@ -20,7 +20,10 @@ module.exports = function(grunt) {
     if (grunt.config('jasmine-node.options.coffee')) {
       options.push("--coffee");
     }
-
+    if (grunt.config('jasmine-node.options.noStack')) {
+      options.push("--noStack");
+    }
+    
     options.push(grunt.config('jasmine-node.run.spec'));
 
     var env = {};

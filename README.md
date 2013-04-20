@@ -59,7 +59,8 @@ A string value that is used to do something else with whatever else.
 grunt.initConfig({
   "jasmine-node": {
     options: {
-      coffee: false
+      coffee: false,
+      noStack: false
     },
     run: {
       spec: "spec"
