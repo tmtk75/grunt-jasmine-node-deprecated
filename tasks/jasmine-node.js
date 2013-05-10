@@ -11,8 +11,15 @@
 module.exports = function(grunt) {
 
   var addOption = function (options, optionName) {
-    if (grunt.config('jasmine-node.options.' + optionName)) {
-      options.push("--" + optionName);
+    var value = grunt.config('jasmine-node.options.' + optionName),
+      argumentName = "--" + optionName;
+
+    if (value) {
+      if (value === true) {
+        options.push(argumentName);
+      } else {
+        options.push(argumentName, value);
+      }
     }
   },
   addOptionsList = function (list) {
@@ -21,6 +28,7 @@ module.exports = function(grunt) {
       result = [];
 
     for (i = 0; i < l; i += 1) {
+
       addOption(result, list[i]);
     }
 
@@ -38,12 +46,17 @@ module.exports = function(grunt) {
       'color',
       'noColor',
       'verbose',
+      'match',
+      'matchall',
       'junitreport',
+      'output',
       'runWithRequireJs',
       'requireJsSetup',
       'nohelpers',
       'forceexit',
+      'test-dir',
       'captureExceptions',
+      'config',
       'noStack'
     ]);
 
