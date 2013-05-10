@@ -10,6 +10,23 @@
 
 module.exports = function(grunt) {
 
+  var addOption = function (options, optionName) {
+    if (grunt.config('jasmine-node.options.' + optionName)) {
+      options.push("--" + optionName);
+    }
+  },
+  addOptionsList = function (list) {
+    var i = 0, 
+      l = list.length,
+      result = [];
+
+    for (i = 0; i < l; i += 1) {
+      addOption(result, list[i]);
+    }
+
+    return result;
+  };
+
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
