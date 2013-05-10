@@ -33,14 +33,20 @@ module.exports = function(grunt) {
   grunt.registerTask('jasmine-node', '', function() {
     grunt.config.requires('jasmine-node.run.spec');
 
-    var options = [];
-    if (grunt.config('jasmine-node.options.coffee')) {
-      options.push("--coffee");
-    }
-    if (grunt.config('jasmine-node.options.noStack')) {
-      options.push("--noStack");
-    }
-    
+    var options = addOptionsList([
+      'coffee',
+      'color',
+      'noColor',
+      'verbose',
+      'junitreport',
+      'runWithRequireJs',
+      'requireJsSetup',
+      'nohelpers',
+      'forceexit',
+      'captureExceptions',
+      'noStack'
+    ]);
+
     options.push(grunt.config('jasmine-node.run.spec'));
 
     var env = {};
