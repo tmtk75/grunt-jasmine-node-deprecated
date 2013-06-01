@@ -72,7 +72,7 @@ module.exports = function(grunt) {
     var done = this.async();
 
     var platform = require("os").platform();
-    var executable = "jasmine-node";
+    var executable = grunt.config('jasmine-node.executable') || "jasmine-node";
 
     if (platform === "win32") {
         executable += ".cmd";
