@@ -33,12 +33,19 @@ grunt.initConfig({
     },
     env: {
       NODE_PATH: "lib/js"
-    }
+    },
+    executable: './node_modules/.bin/jasmine-node'
   }
 })
 ```
 
 ### Options
+
+#### executable
+Type: `String`
+Default value: `undefined`
+
+Used to specify the jasmine-node executable. If it's not provided, it will fall back to the global installation.
 
 #### options.separator
 Type: `String`
