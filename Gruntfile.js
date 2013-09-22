@@ -1,6 +1,6 @@
 /*
- * grunt-contrib-jasmine-node
- * https://github.com/tsakuma/grunt-contrib-jasmine-node
+ * grunt-jasmine-node
+ * https://github.com/tsakuma/grunt-jasmine-node
  *
  * Copyright (c) 2013 Tomotaka Sakuma
  * Licensed under the MIT license.
